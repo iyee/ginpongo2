@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ngerakines/ginpongo2"
+	"github.com/iyee/ginpongo2"
 )
 
 func main() {
