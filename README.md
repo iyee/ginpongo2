@@ -1,6 +1,7 @@
 # ginpongo2
 
 The `github.com/ngerakines/ginpongo2` package provides a middleware that can be used to render pongo2 templates.
+This repo uses func FromCache() instead of FromFile() to cache templates rendering result, in order to improve performances.
 
 ## Example
 
