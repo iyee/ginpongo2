@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gin-gonic/gin"
 	"github.com/ngerakines/ginpongo2"
-	"log"
 )
 
 func main() {
