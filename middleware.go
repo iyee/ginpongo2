@@ -15,8 +15,6 @@ func Pongo2() gin.HandlerFunc {
 		templateValue, isString := templateName.(string)
 
 		if exist && isString {
-			templateData, exist := c.Get("data")
-
 			var template *pongo2.Template
 			if gin.Mode() == "debug" {
 				template = pongo2.Must(pongo2.FromFile(templateValue))
@@ -24,7 +22,7 @@ func Pongo2() gin.HandlerFunc {
 				template = pongo2.Must(pongo2.FromCache(templateValue))
 			}
 
-			err := template.ExecuteWriter(getContext(templateData, exist), c.Writer)
+			err := template.ExecuteWriter(getContext(c.Get("data")), c.Writer)
 			if err != nil {
 				http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
 			}
