@@ -12,14 +12,14 @@ func Pongo2() gin.HandlerFunc {
 		c.Next()
 
 		templateName, exist := c.Get("template")
-		templateValue, isString := templateName.(string)
+		templateVal, isString := templateName.(string)
 
 		if exist && isString {
 			var template *pongo2.Template
 			if gin.Mode() == "debug" {
-				template = pongo2.Must(pongo2.FromFile(templateValue))
+				template = pongo2.Must(pongo2.FromFile(templateVal))
 			} else {
-				template = pongo2.Must(pongo2.FromCache(templateValue))
+				template = pongo2.Must(pongo2.FromCache(templateVal))
 			}
 
 			err := template.ExecuteWriter(getContext(c.Get("data")), c.Writer)
